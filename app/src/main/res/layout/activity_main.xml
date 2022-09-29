@@ -6,42 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/ButtonEnvoyer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="39dp"
-        android:onClick="envoyer"
-        android:text="Envoyer !"
-        app:layout_constraintBottom_toTopOf="@+id/TextViewHello"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EditTextPrenom" />
-
     <TextView
-        android:id="@+id/TextViewHello"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="o"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="84dp"
+        android:text="Entrer votre nom et votre mot de passe"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/EditTextPrenom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="152dp"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/ButtonEnvoyer"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/EditTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="224dp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/SendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="340dp"
+        android:text="Envoyer"
+        android:onClick="envoyer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
