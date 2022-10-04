@@ -26,13 +26,15 @@ public class ExerciseInfo extends AppCompatActivity {
 
         getExerciseInfo(exerciseName);
 
-        //Todo get exercise info on the db corresponding with the name and put it in the textViews
+
     }
 
     public void getExerciseInfo(String exerciseName){
+
         TextView nameView = findViewById(R.id.exerciseName);
         nameView.setText(exerciseName);
 
+        //Todo get exercise info on the db corresponding with the name and put it in the textViews
         Exercises dips = new Exercises("1","Dips","Exercise poly-articulaire travaillant principalement les pecs et les triceps. Posibilité de se lester pour rendre l'éxercise pour difficile", "pecs, triceps", "8 8 8 7, 9 8 7 7, 9 9 8 7, 9 8 7 7, 9 9 8 7, 9 8 7 7, 10 10 8 7");
 
         TextView descriptionView = findViewById(R.id.exerciseDescription);
