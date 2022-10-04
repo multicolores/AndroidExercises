@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         // ((TextView) findViewById(R.id.TextViewHello)).setText("hello"+prenom);
     }
 
+
+
     public boolean checkUser(String u_prenom, String u_password){
         String realPrenom = "Florian";
         String realPassword = "123";
@@ -59,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
         }else{
             return false;
         }
+    }
+
+
+    public void goUserinfo(View v){
+        final Intent intentUserinfo = new Intent(this, userinfo.class);
+        startActivity(intentUserinfo);
     }
     @Override
     protected void onStart() {
