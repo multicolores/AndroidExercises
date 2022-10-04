@@ -13,6 +13,8 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
         android:text="Développer couchée"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,7 +22,7 @@
         android:id="@+id/exerciseDescription"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:text="Développer couchée description blablabla, Développer couchée description blablabla, Développer couchée description blablabla, Développer couchée description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
@@ -36,4 +38,14 @@
         android:text="Pecs, Trcieps, Epaules"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exerciseName" />
+
+
+    <ListView
+        android:id="@+id/listRepetitions"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseDescription"></ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>

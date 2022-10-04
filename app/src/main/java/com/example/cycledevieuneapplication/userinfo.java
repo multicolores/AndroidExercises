@@ -25,8 +25,8 @@ public class userinfo extends AppCompatActivity {
         User user = new User("Mark", "24");
 
         TextView nameView = findViewById(R.id.userName);
-        nameView.setText(user.getName() + ' ' + user.getAge());
-
+        nameView.setText(user.getName());
+        //Todo mettre date du dernier entrainement
         TextView ageView = findViewById(R.id.userAge);
         ageView.setText(user.getAge());
 
@@ -36,8 +36,8 @@ public class userinfo extends AppCompatActivity {
 
     public void createGetExercies(){
         ArrayList exercisesList = new ArrayList();
-        Exercises dips = new Exercises("1","Dips","la description", "pecs, triceps");
-        Exercises dvlpCouche = new Exercises("2","Développer couchée","la description", "pecs, triceps, épaules");
+        Exercises dips = new Exercises("1","Dips","la description", "pecs, triceps", "8 8 8 7, 9 8 7 7, 9 9 8 7");
+        Exercises dvlpCouche = new Exercises("2","Développer couchée","la description", "pecs, triceps, épaules", "8 8 8 7, 9 8 7 7, 9 9 8 7");
         Exercises squat = new Exercises("3","Squat","la description", "quadriceps, ecshio, grand fessier");
 
         exercisesList.add(dips.getName());
