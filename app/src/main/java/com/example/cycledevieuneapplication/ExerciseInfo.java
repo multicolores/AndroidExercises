@@ -31,9 +31,6 @@ public class ExerciseInfo extends AppCompatActivity {
 
     public void getExerciseInfo(String exerciseName){
 
-
-
-
         //Get data from DB corresponding with the qrcode
         SQLiteManager db = new SQLiteManager(this);
         Exercises correspondingExercise = db.getExerciseByname(exerciseName);
