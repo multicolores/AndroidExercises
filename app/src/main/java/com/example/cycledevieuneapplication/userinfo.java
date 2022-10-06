@@ -159,23 +159,6 @@ public class userinfo extends AppCompatActivity {
         if(result != null){
             if(result.getContents() != null){
                 runActivityExoInfo(result.getContents());
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage(result.getContents());
-                builder.setTitle("Scanning result");
-                builder.setPositiveButton("scan encore", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        scanCode();
-                    }
-                }).setPositiveButton("finish", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
             }
             else {
                 Toast.makeText(this, "Aucun resultat", Toast.LENGTH_SHORT).show();

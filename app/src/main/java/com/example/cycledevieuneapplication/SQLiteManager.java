@@ -246,4 +246,26 @@ public class SQLiteManager extends SQLiteOpenHelper
         // return count
         return count;
     }
+
+
+    public Exercises getExerciseByname(String name) {
+        Log.i("tag", "MyDatabaseHelper.getExerciseByname ... " + name);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, new String[] { ID_FIELD,
+                        NAME_FIELD, DESC_FIELD, MUSCLES_FIELD, REP_FIELD }, NAME_FIELD + "=?",
+                new String[] { name }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        Exercises exo = new Exercises();
+        exo.setId(cursor.getString(0));
+        exo.setName(cursor.getString(1));
+        exo.setDescription(cursor.getString(2));
+        exo.setMuscles(cursor.getString(3));
+        exo.setLastsWorkoutRepetitions(cursor.getString(4));
+        // return note
+        return exo;
+    }
 }
