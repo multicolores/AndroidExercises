@@ -130,8 +130,11 @@ public class SQLiteManager extends SQLiteOpenHelper
                 "pecs, triceps", "8 8 8 7, 9 8 7 7");
         Exercises devlp = new Exercises("2","Dvlp couchée","Exercise poly-articulaire travaillant principalement les pecs et les triceps.",
                 "pecs, triceps", "8 8 8 7, 9 8 7 7");
-            this.addExerciseToDatabase(dips);
-            this.addExerciseToDatabase(devlp);
+        Exercises squat = new Exercises("3","Squat","la description", "quadriceps, ecshio, grand fessier", "8 8 8 7, 9 8 7 7, 8 8 8 7, 9 8 7 7, 8 8 8 7, 9 8 7 7, 8 8 8 7, 9 8 7 7");
+
+        this.addExerciseToDatabase(dips);
+        this.addExerciseToDatabase(devlp);
+        this.addExerciseToDatabase(squat);
     }
 
 
@@ -189,6 +192,7 @@ public class SQLiteManager extends SQLiteOpenHelper
                // exerciseList.add(exo);
                 //todo peut eter remettre le truc au dessus a voir
                 exercisesList.add(exo.getName());
+                exercisesList.add(exo.getLastsWorkoutRepetitions());
             } while (cursor.moveToNext());
         }
 
@@ -225,5 +229,21 @@ public class SQLiteManager extends SQLiteOpenHelper
         {
             return null;
         }
+    }
+
+
+    public int getExercisesNumber() {
+        Log.i("tag", "MyDatabaseHelper.getExercisesNumber ... " );
+
+        String countQuery = "SELECT  * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        int count = cursor.getCount();
+
+        cursor.close();
+
+        // return count
+        return count;
     }
 }

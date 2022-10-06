@@ -46,7 +46,10 @@ public class userinfo extends AppCompatActivity {
         l = (ListView) findViewById(R.id.listExercises);
 
         SQLiteManager db = new SQLiteManager(this);
-        //db.createDefaultExo(); si on veut créer une base de donnée de base
+        // Créer les exercises de base dans la base de donné seulement si elle est vide
+        if(db.getExercisesNumber() == 0){
+            db.createDefaultExo();
+        }
 
         //List<Exercises> list =  db.getAllExercises();
         List<Exercises> list =  db.getAllExercisesNames();
