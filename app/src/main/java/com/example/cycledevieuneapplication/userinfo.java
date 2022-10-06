@@ -158,10 +158,12 @@ public class userinfo extends AppCompatActivity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null){
             if(result.getContents() != null){
+                runActivityExoInfo(result.getContents());
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents());
                 builder.setTitle("Scanning result");
-                builder.setPositiveButton("scan agin", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("scan encore", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         scanCode();
@@ -176,7 +178,7 @@ public class userinfo extends AppCompatActivity {
                 dialog.show();
             }
             else {
-                Toast.makeText(this, "No results", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Aucun resultat", Toast.LENGTH_SHORT).show();
             }
         }
         else {
