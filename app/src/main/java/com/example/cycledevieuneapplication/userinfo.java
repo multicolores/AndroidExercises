@@ -12,10 +12,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class userinfo extends AppCompatActivity {
     ListView l;
     public static final String EXTRA_MESSAGE = "com.example.muscuApp.MESSAGE";
+
+    private ArrayList exercisesList = new ArrayList();
+    private ArrayAdapter<Exercises> listViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +34,61 @@ public class userinfo extends AppCompatActivity {
         TextView ageView = findViewById(R.id.userAge);
         ageView.setText(user.getAge());
 
-        createGetExercies();
+        // createGetExercies();   Données en local
 
+        //loadFromDBToMemory();
+        //createExercises();
+
+
+
+
+
+        l = (ListView) findViewById(R.id.listExercises);
+
+        SQLiteManager db = new SQLiteManager(this);
+        //db.createDefaultExo(); si on veut créer une base de donnée de base
+
+        //List<Exercises> list =  db.getAllExercises();
+        List<Exercises> list =  db.getAllExercisesNames();
+
+        this.exercisesList.addAll(list);
+
+
+        this.listViewAdapter = new ArrayAdapter<Exercises>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, this.exercisesList);
+
+        // Assign adapter to ListView
+        this.l.setAdapter(this.listViewAdapter);
+
+        // Register the ListView for Context menu
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                exercisesList );
+
+        l.setAdapter(arrayAdapter);
     }
+
+
+    private void loadFromDBToMemory() {
+        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
+        sqLiteManager.populateExercisesListArray();
+    }
+
+    public void createExercises() {
+        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
+
+        Exercises newExo = new Exercises("1","Dips","Exercise poly-articulaire travaillant principalement les pecs et les triceps.",
+                "pecs, triceps", "8 8 8 7, 9 8 7 7", "12-12-2022");
+
+        Exercises.exoArrayList.add(newExo);
+        sqLiteManager.addExerciseToDatabase(newExo);
+
+        finish();
+    }
+
+
 
     public void createGetExercies(){
         ArrayList exercisesList = new ArrayList();

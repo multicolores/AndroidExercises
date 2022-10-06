@@ -1,13 +1,21 @@
 package com.example.cycledevieuneapplication;
 
+import java.util.ArrayList;
+
 public class Exercises {
+    public static ArrayList<Exercises> exoArrayList = new ArrayList<>();
+
+
     private String id;
     private String name;
     private String description;
     private String muscles;
     private String lastsWorkoutRepetitions;
+    private String lastsWorkoutDate;
 
+    public Exercises()  {
 
+    }
 
     public Exercises(String id, String name, String description, String muscles) {
         this.id = id;
@@ -22,6 +30,15 @@ public class Exercises {
         this.description = description;
         this.muscles = muscles;
         this.lastsWorkoutRepetitions = lastsWorkoutRepetitions;
+    }
+
+    public Exercises(String id, String name, String description, String muscles, String lastsWorkoutRepetitions, String lastsWorkoutDate) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.muscles = muscles;
+        this.lastsWorkoutRepetitions = lastsWorkoutRepetitions;
+        this.lastsWorkoutDate = lastsWorkoutDate;
     }
 
     public String getId() {
@@ -62,5 +79,13 @@ public class Exercises {
 
     public void setLastsWorkoutRepetitions(String lastsWorkoutRepetitions) {
         this.lastsWorkoutRepetitions = lastsWorkoutRepetitions;
+    }
+
+    public String getLastsWorkoutDate() {
+        return lastsWorkoutDate;
+    }
+
+    public void setLastsWorkoutDate(String lastsWorkoutDate) {
+        this.lastsWorkoutDate = lastsWorkoutDate;
     }
 }
